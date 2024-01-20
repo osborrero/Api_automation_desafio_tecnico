@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        BASE_URL_INTEGRATIONS = 'https://integrations-app.qa.klym.com/'
-        NAME_REPORT = 'ReportDataJourney.html'
+        BASE_URL_INTEGRATIONS = 'https://restful-booker.herokuapp.com/'
+        NAME_REPORT = 'report_yape.html'
         PYTHON_COMMAND = 'python' // Cambiado para Windows
         PIP_COMMAND = 'pip' // Cambiado para Windows
     }
@@ -12,8 +12,6 @@ pipeline {
                 echo 'Installing..'
                 dir('') {
                     withEnv(["HOME=${env.WORKSPACE}/"]) {
-                        bat 'choco install python --version 3.10.0 -y'  // Instala Python 3.10 con Chocolatey
-                        bat 'RefreshEnv.cmd'  // Refresca las variables de entorno
                         bat "${PYTHON_COMMAND} -m pip install --upgrade pip"
                         bat "${PYTHON_COMMAND} -m pip install -r requirements.txt" // Cambiado para Windows
                     }
