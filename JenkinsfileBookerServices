@@ -25,7 +25,7 @@ pipeline {
                 echo 'All Tests..'
                 dir('') {
                     withEnv(["HOME=${env.WORKSPACE}/"]) {
-                        bat "${PYTHON_COMMAND} RunnerTestIntegrationDataJourney.py" // Cambiado para Windows
+                        bat "${PYTHON_COMMAND} Runner.py" // Cambiado para Windows
                     }
                 }
             }
