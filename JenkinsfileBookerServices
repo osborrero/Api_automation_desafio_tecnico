@@ -1,0 +1,42 @@
+pipeline {
+    agent {
+            node { label 'ec2-test-ubuntu2204' }
+        }
+    environment {
+        BASE_URL_INTEGRATIONS = 'https://integrations-app.qa.klym.com/'
+        NAME_REPORT = 'ReportIntegrations.html'
+        BUCKET = "qa-automation.klym.com"
+        FILENAME = "reports/ReportIntegrations.html"
+        REGION = "us-east-1"
+    }
+    stages {
+    stage('Installing') {
+            steps {
+                echo 'Installing..'
+                dir('') {
+                withEnv(["HOME=${env.WORKSPACE}/"]) {
+                sh 'pip3 install -r requirements.txt'
+                }
+                }
+            }
+        }
+        stage('All Tests...') {
+            steps {
+                echo 'All Tests..'
+                dir('') {
+                withEnv(["HOME=${env.WORKSPACE}/"]) {
+                sh 'python3 RunnerIntegrations.py'
+                }
+                }
+            }
+        }
+        stage("Publish in qa-automation.klym.com"){
+            steps{
+                    withAWS(role: 'OmniLatamPipelineRole', roleAccount: '852690552614', region:'us-east-1', useNode: true){
+                    s3Upload(file:"${FILENAME}", bucket:"${BUCKET}", path:"")
+                }
+            }
+        }
+
+    }
+}
