@@ -20,6 +20,6 @@ pipeline {
                 echo 'All Tests..'
                 sh "${PYTHON_COMMAND} Runner.py"
             }
-        }
-    }
+ }
+}
 }
