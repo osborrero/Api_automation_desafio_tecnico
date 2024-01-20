@@ -4,8 +4,6 @@ from test_junkie.runner import Runner
 from src.page.html_reporter.CustomReporter import CustomReporter
 from src.test.suites.RestfulBookerSuite import RestfulBooker
 
-# report_template = ReportTemplate()
-# report_template.__class__.get_body_template = CustomReporter.get_custom_monkey_html_template
 
 runner = Runner(
 
