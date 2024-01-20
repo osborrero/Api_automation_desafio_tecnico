@@ -10,12 +10,12 @@ from src.test.suites.RestfulBookerSuite import RestfulBooker
 report_template = ReportTemplate()
 report_template.__class__.get_body_template = CustomReporter.get_custom_monkey_html_template
 runner = None
-if Transversal.ENV == "QA":
+if 'QA' == 'QA':
     runner = Runner(
         suites=[
             RestfulBooker
         ],
-        html_report=f"reports/{Transversal.NAME_REPORT}",
+        html_report="reports/report_yape.html",
         monitor_resources=True
     )
 

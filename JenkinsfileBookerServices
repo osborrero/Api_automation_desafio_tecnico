@@ -1,22 +1,31 @@
 pipeline {
     agent any
     environment {
-        BASE_URL_BOOKER = 'https://restful-booker.herokuapp.com/'
+        BASE_URL_INTEGRATIONS = 'https://restful-booker.herokuapp.com/'
         NAME_REPORT = 'report_yape.html'
-        FILENAME = "reports/report_yape.html"
+        PYTHON_COMMAND = 'python' // Cambiado para Windows
+        PIP_COMMAND = 'pip' // Cambiado para Windows
     }
     stages {
         stage('Installing') {
             steps {
                 echo 'Installing..'
-                sh 'pip3 --version'
-                sh 'pip3 install -r requirements.txt'
+                dir('') {
+                    withEnv(["HOME=${env.WORKSPACE}/"]) {
+                        bat "${PYTHON_COMMAND} -m pip install --upgrade pip"
+                        bat "${PYTHON_COMMAND} -m pip install -r requirements.txt" // Cambiado para Windows
+                    }
+                }
             }
         }
         stage('All Tests...') {
             steps {
                 echo 'All Tests..'
-                sh 'python3 Runner.py'
+                dir('') {
+                    withEnv(["HOME=${env.WORKSPACE}/"]) {
+                        bat "${PYTHON_COMMAND} Runner.py" // Cambiado para Windows
+                    }
+                }
             }
 }
 }

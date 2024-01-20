@@ -92,7 +92,7 @@ class Color:
 
 
 class TestDataBooker:
-    base_url = os.environ.get('BASE_URL_BOOKER')
+    base_url = 'https://restful-booker.herokuapp.com/'
     HEADER = {"Content-Type": "application/json"}
     data_input = "src/json/booker/MockBooker.json"
     HEADER_UPDATEBOOKING = {
