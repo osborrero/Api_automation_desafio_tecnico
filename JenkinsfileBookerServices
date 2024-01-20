@@ -1,31 +1,31 @@
 pipeline {
     agent any
     environment {
-        BASE_URL_BOOKER = 'https://restful-booker.herokuapp.com/'
-        NAME_REPORT = 'report_yape.html'
-        FILENAME = "reports/report_yape.html"
+        BASE_URL_INTEGRATIONS = 'https://integrations-app.qa.klym.com/'
+        NAME_REPORT = 'ReportDataJourney.html'
+        PYTHON_COMMAND = 'python' // Cambiado para Windows
+        PIP_COMMAND = 'pip' // Cambiado para Windows
     }
     stages {
         stage('Installing') {
             steps {
                 echo 'Installing..'
                 dir('') {
-                withEnv(["HOME=${env.WORKSPACE}/"]) {
-                sh 'pip install -r requirements.txt'
+                    withEnv(["HOME=${env.WORKSPACE}/"]) {
+                        bat "pip install -r requirements.txt" // Cambiado para Windows
+                    }
                 }
-                }
- }
-}
-
-stage('All Tests...') {
+            }
+        }
+        stage('All Tests...') {
             steps {
                 echo 'All Tests..'
                 dir('') {
-                withEnv(["HOME=${env.WORKSPACE}/"]) {
-                sh 'python3 Runner.py'
+                    withEnv(["HOME=${env.WORKSPACE}/"]) {
+                        bat "${PYTHON_COMMAND} RunnerTestIntegrationDataJourney.py" // Cambiado para Windows
+                    }
                 }
-                }
-    }
+            }
 }
 }
 }
