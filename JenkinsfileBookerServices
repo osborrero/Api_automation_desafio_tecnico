@@ -23,7 +23,7 @@ pipeline {
                 echo 'All Tests..'
                 dir('') {
                     withEnv(["HOME=${env.WORKSPACE}/"]) {
-                        bat "${PYTHON_COMMAND} Runner.py" // Cambiado para Windows
+                       bat label: '', script: 'python Runner.py'// Cambiado para Windows
                     }
                 }
             }
