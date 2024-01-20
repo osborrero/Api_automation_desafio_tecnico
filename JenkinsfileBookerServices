@@ -12,7 +12,8 @@ pipeline {
                 echo 'Installing..'
                 dir('') {
                     withEnv(["HOME=${env.WORKSPACE}/"]) {
-                        bat "pip install -r requirements.txt" // Cambiado para Windows
+                        bat "${PYTHON_COMMAND} -m pip install --upgrade pip"
+                        bat "${PYTHON_COMMAND} -m pip install -r requirements.txt" // Cambiado para Windows
                     }
                 }
             }
@@ -22,7 +23,7 @@ pipeline {
                 echo 'All Tests..'
                 dir('') {
                     withEnv(["HOME=${env.WORKSPACE}/"]) {
-                        bat "${PYTHON_COMMAND} RunnerTestIntegrationDataJourney.py" // Cambiado para Windows
+                        bat "${PYTHON_COMMAND} Runner.py" // Cambiado para Windows
                     }
                 }
             }
