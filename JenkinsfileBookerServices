@@ -4,20 +4,22 @@ pipeline {
         BASE_URL_BOOKER = 'https://restful-booker.herokuapp.com/'
         NAME_REPORT = 'report_yape.html'
         FILENAME = "reports/report_yape.html"
+        PYTHON_COMMAND = isUnix() ? 'python3' : 'python'
+        PIP_COMMAND = isUnix() ? 'pip3' : 'pip'
     }
     stages {
         stage('Installing') {
             steps {
                 echo 'Installing..'
-                sh 'pip3 --version'
-                sh 'pip3 install -r requirements.txt'
+                sh "${PIP_COMMAND} --version"
+                sh "${PIP_COMMAND} install -r requirements.txt"
             }
         }
         stage('All Tests...') {
             steps {
                 echo 'All Tests..'
-                sh 'python3 Runner.py'
+                sh "${PYTHON_COMMAND} Runner.py"
             }
-}
-}
+        }
+    }
 }
