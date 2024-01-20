@@ -2,6 +2,7 @@ import unittest
 import copy
 from test_junkie.decorators import Suite, test
 
+from src.page.utils.Constants import TestDataBooker
 from src.page.utils.LogCustom import logger
 from src.test.suites.utils.Functions import CommonFunctions
 from src.webService.BookerServices import Service
@@ -52,28 +53,28 @@ class RestfulBooker(unittest.TestCase):
         response, status_code = Service.getHealthCheck()
         return response, status_code
 
-    @test(skip=custom_skip_function, component="BOOKING_001", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_01", parallelized_parameters=True)
     def GetHealthCheck(self, suite_parameter, parameter):
         logger.info(" @TEST - GetHealthCheck")
         response, status_code = self.run_getHealthCheck()
         self.assertEqual(status_code, 201)
         self.assertEqual(response, 'Created')
 
-    @test(skip=custom_skip_function, component="BOOKING_002", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_02", parallelized_parameters=True)
     def Auth_CreateToken(self, suite_parameter, parameter):
         logger.info(" @TEST - Auth_CreateToken")
         token, status_code = self.run_auth_createToken('Auth-CreateToken')
         self.assertEqual(status_code, 200)
         self.access_token = token
 
-    @test(skip=custom_skip_function, component="BOOKING_003", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_03", parallelized_parameters=True)
     def GetBookingIds(self, suite_parameter, parameter):
         logger.info(" @TEST - GetBookingIds")
         number_of_records_of_bookingid, status_code = self.run_booking_Ids()
         logger.info(f"Se encontraron {number_of_records_of_bookingid} en la respuesta")
         self.assertEqual(status_code, 200)
 
-    @test(skip=custom_skip_function, component="BOOKING_004", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_04", parallelized_parameters=True)
     def CreateBooking(self, suite_parameter, parameter):
         logger.info(" @TEST - CreateBooking")
         response, status_code = self.run_createBooking('CreateBooking')
@@ -82,7 +83,7 @@ class RestfulBooker(unittest.TestCase):
         self.Data_booking_send = response['booking']
         logger.info(f"Los datos creados son {response['booking']}")
 
-    @test(skip=custom_skip_function, component="BOOKING_005", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_05", parallelized_parameters=True)
     def GetBookingById(self, suite_parameter, parameter):
         logger.info(" @TEST - GetBookingById")
         response_date, status_code = self.run_booking_by_id(self.Booking_id)
@@ -91,7 +92,7 @@ class RestfulBooker(unittest.TestCase):
         value = CommonFunctions.validate_data_bookings(self.Data_booking_send, response_date)
         self.assertTrue(value)
 
-    @test(skip=custom_skip_function, component="BOOKING_006", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_06", parallelized_parameters=True)
     def PutUpdateBooking(self, suite_parameter, parameter):
         logger.info(" @TEST - PutUpdateBooking")
         response_date, status_code, value = self.run_updateBooking('UpdateBooking', self.Booking_id, self.access_token)
@@ -99,7 +100,7 @@ class RestfulBooker(unittest.TestCase):
         self.assertEqual(status_code, 200)
         self.assertTrue(value)
 
-    @test(skip=custom_skip_function, component="BOOKING_007", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_07", parallelized_parameters=True)
     def PatchPartialUpdateBooking(self, suite_parameter, parameter):
         logger.info(" @TEST - PatchPartialUpdateBooking")
         response_date, status_code, payload_partialUpdateBooking = self.run_partialUpdateBooking('PartialUpdateBooking', self.Booking_id, self.access_token)
@@ -107,9 +108,32 @@ class RestfulBooker(unittest.TestCase):
         self.assertEqual(status_code, 200)
         self.assertDictContainsSubset(payload_partialUpdateBooking, response_date)
 
-    @test(skip=custom_skip_function, component="BOOKING_008", parallelized_parameters=True)
+    @test(skip=custom_skip_function, component="HappyPaths_08", parallelized_parameters=True)
     def DeleteBooking(self, suite_parameter, parameter):
         logger.info(" @TEST - DeleteBooking")
         response, status_code = self.run_delete_Booking(self.Booking_id, self.access_token)
         self.assertEqual(status_code, 201)
         self.assertEqual(response, 'Created')
+
+    @test(skip=custom_skip_function, component="UnHappyPaths_01", parallelized_parameters=True)
+    def DeleteBooking_incorrect_token(self, suite_parameter, parameter):
+        logger.info(" @TEST - DeleteBooking_incorrect_token")
+        response, status_code = self.run_delete_Booking(self.Booking_id, TestDataBooker.TOKEN_INCORRECT)
+        self.assertEqual(status_code, 403)
+        self.assertEqual(response, 'Forbidden')
+
+    @test(skip=custom_skip_function, component="UnHappyPaths_02", parallelized_parameters=True)
+    def DeleteBooking_incorrect_Booking_id(self, suite_parameter, parameter):
+        logger.info(" @TEST - DeleteBooking_incorrect_Booking_id")
+        response, status_code = self.run_delete_Booking(f"{self.Booking_id}a", self.access_token)
+        self.assertEqual(status_code, 403)
+        self.assertEqual(response, 'Forbidden')
+
+    @test(skip=custom_skip_function, component="UnHappyPaths_03", parallelized_parameters=True)
+    def GetBookingBy_incorrect_Booking_Id(self, suite_parameter, parameter):
+        logger.info(" @TEST - GetBookingBy_incorrect_Booking_Id")
+        response, status_code = self.run_booking_by_id(f"{self.Booking_id}a")
+        self.assertEqual(status_code, 404)
+        self.assertEqual(response, 'Not Found')
+
+

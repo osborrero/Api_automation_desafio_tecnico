@@ -3,16 +3,6 @@ import random
 from datetime import datetime
 
 
-class Transversal:
-    CO_COUNTRY = "CO"
-
-    BROWSER = os.environ.get('BROWSER')
-    NAME_REPORT = os.environ.get('NAME_REPORT')
-
-    ENV = os.environ.get('ENV')
-    TAG_NAME = os.environ.get('TAG_NAME')
-
-
 class TestCategory:
     SUCCESS = "success"
     FAIL = "fail"
@@ -99,7 +89,9 @@ class TestDataBooker:
         "Content-Type": "application/json",
         "Accept": "application/json",
         "Cookie": f"token="
+
     }
+    TOKEN_INCORRECT = 'bdf27c0f7fcc1aa'
     HEADER_DELETEBOOKING = {
         "Content-Type": "application/json",
         "Cookie": f"token="

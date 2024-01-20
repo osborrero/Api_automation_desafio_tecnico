@@ -141,7 +141,7 @@
                       <div class="card blue-grey darken-3 absolute_cards tooltipped" data-html='true' data-tooltip='Absolute # of tests executed.<br>May not match with the # of entries in the table because parameterized tests are nested in the table.'>
                         <div class="card-content white-text">
                           <span class="card-title">Tests Executed:</span>
-                          <div class="absolute_value"><b>8</b></div>
+                          <div class="absolute_value"><b>11</b></div>
                         </div>
                       </div>
                     </div>
@@ -159,7 +159,7 @@
                       <div class="card blue-grey darken-3 absolute_cards tooltipped" data-html='true' data-tooltip='Absolute time that it took to run all of the tests'>
                         <div class="card-content white-text">
                           <span class="card-title">Runtime:</span>
-                          <div class="absolute_value"><b>00h:00m:02s</b></div>
+                          <div class="absolute_value"><b>00h:00m:04s</b></div>
                         </div>
                       </div>
                     </div>
@@ -177,7 +177,7 @@
                       <div class="card blue-grey darken-3 absolute_cards " >
                         <div class="card-content white-text">
                           <span class="card-title">Average CPU:</span>
-                          <div class="absolute_value"><b>5.6%</b></div>
+                          <div class="absolute_value"><b>4.53%</b></div>
                         </div>
                       </div>
                     </div>
@@ -186,7 +186,7 @@
                       <div class="card blue-grey darken-3 absolute_cards " >
                         <div class="card-content white-text">
                           <span class="card-title">Average Mem:</span>
-                          <div class="absolute_value"><b>93.8%</b></div>
+                          <div class="absolute_value"><b>94.33%</b></div>
                         </div>
                       </div>
                     </div>
@@ -297,7 +297,7 @@
                         var chart = am4core.create("absolute_metrics", am4charts.PieChart);
                         chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-                        chart.data = [{'status': 'success', 'value': 8}];
+                        chart.data = [{'status': 'success', 'value': 11}];
                         chart.radius = am4core.percent(70);
                         chart.innerRadius = am4core.percent(40);
                         chart.startAngle = 180;
@@ -399,7 +399,7 @@
                         chart.paddingRight = 20;
                         
                         // format data
-                        var data = [{'date': '2024-01-20 13:39:11.205055', 'cpu': 8.1, 'mem': 93.8}, {'date': '2024-01-20 13:39:12.209178', 'cpu': 3.1, 'mem': 93.8}];
+                        var data = [{'date': '2024-01-20 14:42:43.889448', 'cpu': 9.2, 'mem': 94.3}, {'date': '2024-01-20 14:42:44.900512', 'cpu': 2.7, 'mem': 94.4}, {'date': '2024-01-20 14:42:45.955358', 'cpu': 1.7, 'mem': 94.3}];
                         for(dict in data) data[dict].date = new Date(data[dict].date)
                         
                         chart.data = data;
@@ -473,7 +473,7 @@
                         var chart_features = am4core.create("features", am4charts.XYChart);
                         
                         // Add data
-                        chart_features.data = [{'duration': '0.36', 'measure': 'RestFul Booker', 'success': 8, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
+                        chart_features.data = [{'duration': '0.37', 'measure': 'RestFul Booker', 'success': 11, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
                         
                         // Create axes
                         var categoryAxis_features = chart_features.xAxes.push(new am4charts.CategoryAxis());
@@ -582,7 +582,7 @@
                         var chart_components = am4core.create("components", am4charts.XYChart);
                         
                         // Add data
-                        chart_components.data = [{'duration': '0.46', 'measure': 'BOOKING_001', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'BOOKING_002', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.43', 'measure': 'BOOKING_003', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'BOOKING_004', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.34', 'measure': 'BOOKING_005', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.33', 'measure': 'BOOKING_006', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.34', 'measure': 'BOOKING_007', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.32', 'measure': 'BOOKING_008', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
+                        chart_components.data = [{'duration': '0.42', 'measure': 'HappyPaths_01', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.38', 'measure': 'HappyPaths_02', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.33', 'measure': 'HappyPaths_03', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'HappyPaths_04', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'HappyPaths_05', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'HappyPaths_06', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'HappyPaths_07', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.35', 'measure': 'HappyPaths_08', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.36', 'measure': 'UnHappyPaths_01', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.36', 'measure': 'UnHappyPaths_02', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}, {'duration': '0.47', 'measure': 'UnHappyPaths_03', 'success': 1, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
                         
                         // Create axes
                         var categoryAxis_components = chart_components.xAxes.push(new am4charts.CategoryAxis());
@@ -691,7 +691,7 @@
                         var chart_owners = am4core.create("owners", am4charts.XYChart);
                         
                         // Add data
-                        chart_owners.data = [{'duration': '0.36', 'measure': 'Integrations YAPE', 'success': 8, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
+                        chart_owners.data = [{'duration': '0.37', 'measure': 'Integrations YAPE', 'success': 11, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
                         
                         // Create axes
                         var categoryAxis_owners = chart_owners.xAxes.push(new am4charts.CategoryAxis());
@@ -800,7 +800,7 @@
                         var chart_suites = am4core.create("suites", am4charts.XYChart);
                         
                         // Add data
-                        chart_suites.data = [{'duration': '0.36', 'measure': 'RestfulBooker', 'success': 8, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
+                        chart_suites.data = [{'duration': '0.37', 'measure': 'RestfulBooker', 'success': 11, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
                         
                         // Create axes
                         var categoryAxis_suites = chart_suites.xAxes.push(new am4charts.CategoryAxis());
@@ -909,7 +909,7 @@
                         var chart_tags = am4core.create("tags", am4charts.XYChart);
                         
                         // Add data
-                        chart_tags.data = [{'duration': '0.36', 'measure': 'Not Defined', 'success': 8, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
+                        chart_tags.data = [{'duration': '0.37', 'measure': 'Not Defined', 'success': 11, 'fail': 0, 'ignore': 0, 'error': 0, 'skip': 0, 'cancel': 0}]
                         
                         // Create axes
                         var categoryAxis_tags = chart_tags.xAxes.push(new am4charts.CategoryAxis());
@@ -1063,7 +1063,7 @@
 
                             var table = $("#table_results").DataTable( {
                                 deferRender: true,
-                                data: [{'suite': 'RestfulBooker', 'test': 'GetHealthCheck', 'feature': 'RestFul Booker', 'component': 'BOOKING_001', 'duration': '0.46', 'status': 'success', 'test_id': 1, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'Auth_CreateToken', 'feature': 'RestFul Booker', 'component': 'BOOKING_002', 'duration': '0.35', 'status': 'success', 'test_id': 2, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'GetBookingIds', 'feature': 'RestFul Booker', 'component': 'BOOKING_003', 'duration': '0.43', 'status': 'success', 'test_id': 3, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'CreateBooking', 'feature': 'RestFul Booker', 'component': 'BOOKING_004', 'duration': '0.35', 'status': 'success', 'test_id': 4, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'GetBookingById', 'feature': 'RestFul Booker', 'component': 'BOOKING_005', 'duration': '0.34', 'status': 'success', 'test_id': 5, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'PutUpdateBooking', 'feature': 'RestFul Booker', 'component': 'BOOKING_006', 'duration': '0.33', 'status': 'success', 'test_id': 6, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'PatchPartialUpdateBooking', 'feature': 'RestFul Booker', 'component': 'BOOKING_007', 'duration': '0.34', 'status': 'success', 'test_id': 7, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'DeleteBooking', 'feature': 'RestFul Booker', 'component': 'BOOKING_008', 'duration': '0.32', 'status': 'success', 'test_id': 8, 'suite_id': 1, 'assignee': 'Integrations YAPE'}],
+                                data: [{'suite': 'RestfulBooker', 'test': 'GetHealthCheck', 'feature': 'RestFul Booker', 'component': 'HappyPaths_01', 'duration': '0.42', 'status': 'success', 'test_id': 1, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'Auth_CreateToken', 'feature': 'RestFul Booker', 'component': 'HappyPaths_02', 'duration': '0.38', 'status': 'success', 'test_id': 2, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'GetBookingIds', 'feature': 'RestFul Booker', 'component': 'HappyPaths_03', 'duration': '0.33', 'status': 'success', 'test_id': 3, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'CreateBooking', 'feature': 'RestFul Booker', 'component': 'HappyPaths_04', 'duration': '0.35', 'status': 'success', 'test_id': 4, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'GetBookingById', 'feature': 'RestFul Booker', 'component': 'HappyPaths_05', 'duration': '0.35', 'status': 'success', 'test_id': 5, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'PutUpdateBooking', 'feature': 'RestFul Booker', 'component': 'HappyPaths_06', 'duration': '0.35', 'status': 'success', 'test_id': 6, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'PatchPartialUpdateBooking', 'feature': 'RestFul Booker', 'component': 'HappyPaths_07', 'duration': '0.35', 'status': 'success', 'test_id': 7, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'DeleteBooking', 'feature': 'RestFul Booker', 'component': 'HappyPaths_08', 'duration': '0.35', 'status': 'success', 'test_id': 8, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'DeleteBooking_incorrect_token', 'feature': 'RestFul Booker', 'component': 'UnHappyPaths_01', 'duration': '0.36', 'status': 'success', 'test_id': 9, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'DeleteBooking_incorrect_Booking_id', 'feature': 'RestFul Booker', 'component': 'UnHappyPaths_02', 'duration': '0.36', 'status': 'success', 'test_id': 10, 'suite_id': 1, 'assignee': 'Integrations YAPE'}, {'suite': 'RestfulBooker', 'test': 'GetBookingBy_incorrect_Booking_Id', 'feature': 'RestFul Booker', 'component': 'UnHappyPaths_03', 'duration': '0.47', 'status': 'success', 'test_id': 11, 'suite_id': 1, 'assignee': 'Integrations YAPE'}],
                                 displayLength: 25,
                                 order: [[ 0, "asc" ]],
                                 columns: [
@@ -1396,7 +1396,7 @@
                 </div>
                
                         <script>
-                            var database_lol = {"suites": {"1": {"name": "RestfulBooker", "module": "src.test.suites.RestfulBookerSuite", "metrics": {"beforeTest": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}, "afterTest": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}, "beforeClass": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}, "afterClass": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}}}}, "tests": {"1": {"name": "GetHealthCheck", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.46s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.46"}}}, "status": "success"}, "2": {"name": "Auth_CreateToken", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "3": {"name": "GetBookingIds", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.43s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.43"}}}, "status": "success"}, "4": {"name": "CreateBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "5": {"name": "GetBookingById", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.34s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.34"}}}, "status": "success"}, "6": {"name": "PutUpdateBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.33s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.33"}}}, "status": "success"}, "7": {"name": "PatchPartialUpdateBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.34s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.34"}}}, "status": "success"}, "8": {"name": "DeleteBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.32s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.32"}}}, "status": "success"}}}
+                            var database_lol = {"suites": {"1": {"name": "RestfulBooker", "module": "src.test.suites.RestfulBookerSuite", "metrics": {"beforeTest": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}, "afterTest": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}, "beforeClass": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}, "afterClass": {"executions": 0, "failures": 0, "median": "N/A", "avg": "N/A", "total": "N/A", "minimum": "N/A", "maximum": "N/A"}}}}, "tests": {"1": {"name": "GetHealthCheck", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.42s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.42"}}}, "status": "success"}, "2": {"name": "Auth_CreateToken", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.38s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.38"}}}, "status": "success"}, "3": {"name": "GetBookingIds", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.33s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.33"}}}, "status": "success"}, "4": {"name": "CreateBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "5": {"name": "GetBookingById", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "6": {"name": "PutUpdateBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "7": {"name": "PatchPartialUpdateBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "8": {"name": "DeleteBooking", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.35s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.35"}}}, "status": "success"}, "9": {"name": "DeleteBooking_incorrect_token", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.36s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.36"}}}, "status": "success"}, "10": {"name": "DeleteBooking_incorrect_Booking_id", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.36s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.36"}}}, "status": "success"}, "11": {"name": "GetBookingBy_incorrect_Booking_Id", "metrics": {"None": {"None": {"status": "success", "retry": 1, "performance": ["0.47s"], "tracebacks": [null], "statuses": ["success"], "beforeTest": {"performance": [], "tracebacks": []}, "afterTest": {"performance": [], "tracebacks": []}, "param": "None", "class_param": "None", "params_total": "0.47"}}}, "status": "success"}}}
                             function registerCopy(){
                                 $(".copy_icon").on("click", function(event){
                                     event.stopPropagation();
