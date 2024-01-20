@@ -11,6 +11,10 @@ pipeline {
         stage('Installing') {
             steps {
                 echo 'Installing..'
+                script {
+                    env.PYTHON_COMMAND = isUnix() ? 'python3' : 'python'
+                    env.PIP_COMMAND = isUnix() ? 'pip3' : 'pip'
+                }
                 sh "${PIP_COMMAND} --version"
                 sh "${PIP_COMMAND} install -r requirements.txt"
             }
