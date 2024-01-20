@@ -1,0 +1,34 @@
+{
+  "MOCK_BOOKER": {
+    "Auth-CreateToken": {
+      "username": "admin",
+      "password": "password123"
+    },
+    "CreateBooking": {
+      "firstname": "Oswaldo",
+      "lastname": "Borrero",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2024-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "UpdateBooking": {
+      "firstname": "Oswaldo",
+      "lastname": "Borrero",
+      "totalprice": 600,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2024-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "PartialUpdateBooking": {
+      "firstname": "Oswaldo",
+      "lastname": "Borrero Nuñez"
+    }
+  }
+}
