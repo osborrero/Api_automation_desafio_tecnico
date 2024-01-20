@@ -1,13 +1,11 @@
 pipeline {
     agent {
-            node { label 'ec2-test-ubuntu2204' }
+            node any
         }
     environment {
-        BASE_URL_INTEGRATIONS = 'https://integrations-app.qa.klym.com/'
-        NAME_REPORT = 'ReportIntegrations.html'
-        BUCKET = "qa-automation.klym.com"
-        FILENAME = "reports/ReportIntegrations.html"
-        REGION = "us-east-1"
+        BASE_URL_BOOKER= 'https://restful-booker.herokuapp.com/'
+        NAME_REPORT= 'report_yape.html'
+        FILENAME = "reports/report_yape.html"
     }
     stages {
     stage('Installing') {
@@ -25,15 +23,8 @@ pipeline {
                 echo 'All Tests..'
                 dir('') {
                 withEnv(["HOME=${env.WORKSPACE}/"]) {
-                sh 'python3 RunnerIntegrations.py'
+                sh 'python3 Runner.py'
                 }
-                }
-            }
-        }
-        stage("Publish in qa-automation.klym.com"){
-            steps{
-                    withAWS(role: 'OmniLatamPipelineRole', roleAccount: '852690552614', region:'us-east-1', useNode: true){
-                    s3Upload(file:"${FILENAME}", bucket:"${BUCKET}", path:"")
                 }
             }
         }
