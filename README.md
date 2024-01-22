@@ -6,7 +6,7 @@ la funcionalidad de la API en diversas operaciones, incluyendo la autenticación
 la creación, lectura, actualización y eliminación de reservas.
 
 
-## 🏠 Detalles del Tester
+## Datos personales
 
 * Name: Oswaldo Borrero Nuñez
 * Country: Colombia
@@ -38,7 +38,7 @@ Ir a las clases de la carpeta **runners** `API_TestSuite_Yape/Runners.py` config
 
 ## 📄 Generación de informes
 
-En el informe se evidencia tiempo de esjecución , estados y graficas del comportamiento.
+En el informe se evidencia tiempo de ejecución , estados y graficas del comportamiento.
 API_TestSuite_Yape/reports/report_yape.html
 
 ***

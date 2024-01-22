@@ -81,46 +81,65 @@ Sin embargo, existen aspectos que se consideran fuera del alcance de este plan:
    La seguridad de la API, más allá de las pruebas básicas de autenticación, no está dentro del alcance. 
 
 ### 📋 Casos de Prueba:
+**Happy Paths** 😃
 
-✏️GetHealthCheck [BOOKING_001]
+✏️GetHealthCheck ---HappyPaths_01
     
     Verificar la respuesta del servicio.
     Validar el código de estado y el contenido de la respuesta.
 
-✏️Auth_CreateToken [BOOKING_002]
+✏️Auth_CreateToken ---HappyPaths_02
 
     Obtener un token de acceso válido.
     Verificar el código de estado y la presencia del token en la respuesta.
 
-✏️GetBookingIds
+✏️GetBookingIds --HappyPaths_03
 
     Obtener la lista de IDs de reservas.
     Validar el código de estado y la estructura de la respuesta.
 
-✏️CreateBooking:
+✏️CreateBooking --HappyPaths_04
 
     Crear una reserva.
     Validar el código de estado y la existencia del ID de reserva en la respuesta.
 
-✏️GetBookingById:
+✏️GetBookingById --HappyPaths_05
 
     Obtener detalles de una reserva por ID.
     Validar el código de estado y la coherencia de la información obtenida.
 
-✏️PutUpdateBooking:
+✏️PutUpdateBooking --HappyPaths_06
 
     Actualizar los detalles de una reserva.
     Validar el código de estado y la correcta actualización de la información.
 
-✏️PatchPartialUpdateBooking:
+✏️PatchPartialUpdateBooking --HappyPaths_07
 
     Actualizar parcialmente una reserva.
     Validar el código de estado y la actualización adecuada de la información.
 
-✏️DeleteBooking:
+✏️DeleteBooking ---HappyPaths_08
 
     Eliminar una reserva.
     Validar el código de estado y la confirmación de eliminación en la respuesta.
+
+**UNHappy Paths** 🤡
+
+✏️DeleteBooking_incorrect_token ---UnHappyPaths_01
+
+      Intenta eliminar una reserva utilizando un token incorrecto.
+      Se espera que el código de estado de la respuesta sea 403 (Forbidden).
+      
+
+✏️DeleteBooking_incorrect_Booking_id ---HappyPaths_02
+
+    Intenta eliminar una reserva utilizando un ID de reserva incorrecto (concatenando una letra al ID).
+    Se espera que el código de estado de la respuesta sea 403 (Forbidden).
+
+✏️GetBookingBy_incorrect_Booking_Id --HappyPaths_03
+
+    Intenta obtener detalles de una reserva utilizando un ID de reserva incorrecto (concatenando una letra al ID).
+    Se espera que el código de estado de la respuesta sea 404 (Not Found).
 
 ### 📨 ENTEGRABLES DE PRUEBAS
 
