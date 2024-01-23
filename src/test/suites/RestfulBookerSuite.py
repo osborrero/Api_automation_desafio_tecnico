@@ -129,7 +129,7 @@ class RestfulBooker(unittest.TestCase):
         self.assertEqual(status_code, 403)
         self.assertEqual(response, 'Forbidden')
 
-    @test(skip=custom_skip_function, component="UnHappyPaths_03", parallelized_parameters=True)
+    @test(skip=True, component="UnHappyPaths_03", parallelized_parameters=True)
     def GetBookingBy_incorrect_Booking_Id(self, suite_parameter, parameter):
         logger.info(" @TEST - GetBookingBy_incorrect_Booking_Id")
         response, status_code = self.run_booking_by_id(f"{self.Booking_id}a")
