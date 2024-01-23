@@ -33,3 +33,12 @@ jobs:
       - name: All Tests
         run: |
           python Runner.py
+          
+      - name: Upload reports automation testing
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: report_yape
+          path: |
+            reports/report_yape.html
+          retention-days: 1
