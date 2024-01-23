@@ -1,9 +1,10 @@
-name: Nombre de tu flujo
+name: Api_Automation
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -22,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9.7'  # Ajusta según tus necesidades
+          python-version: '3.10'  # Ajusta según tus necesidades
 
       - name: Installing
         run: |
